@@ -2,6 +2,8 @@ var express =require('express'),
 	app = express();
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
+	
+
 	//we will use this nicknames array to store the all of the user names logged in.
 	//nicknames = [];
 	//Version 4 lets grab mongoose
@@ -10,7 +12,10 @@ var express =require('express'),
 	users ={};
 
 
+
 server.listen(3000);
+
+app.use(express.static('public'));
 
 //Version 4 lets connect to / and or / create our mongo db Database
 mongoose.connect('mongodb://localhost/chatmongoose', function(err){
