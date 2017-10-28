@@ -15,6 +15,11 @@
 			  float:left;
 			  border:1px #000 solid;
 			  }
+			  .userwrap{
+				text-align: center;
+				background-color: #50394c;
+				color:white;
+			  }
 			  .error{
 			  color:red;
 			  }
@@ -47,7 +52,11 @@
 		
 		   <div class="row">
 			  <div id ="contentWrap">
-				 <div class="col-md-2" id ="users"></div>
+				 <div class="col-md-2 userwrap">
+					 <h4>Users</h4>
+					 <hr></hr>
+					 <div id ="users"></div>
+				</div>
 				 <div class="col-md-5"  id = "chatWrap">
 					<div id = "chat"></div>
 					<form id ="send-message">
