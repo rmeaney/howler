@@ -1,10 +1,12 @@
 <html>
 		<head>
+			<link rel="howler" type="image" href="/images/HowlerWolfOnly.png" />
 		   <title>Howler</title>
 		   <style>
 			  #chat{
 			  height:500px;
-			  width:300px;
+			  width:100%;
+			  overflow-y: scroll;
 			  }
 			  #contentWrap{
 			  display:none;
@@ -26,32 +28,36 @@
 		   <link rel="stylesheet" href="/css/index.css">
 		</head>
 		<body>
-		   <div class="row" id="top-bar">
+		<div class="container-fluid"></div>	
+		   
+			<div class="row" id="top-bar">
 			  <div class="col-md-4">
 				 <img src="/images/howlerWiWolf.png" height="65" width="200">
 			  </div>
-			  <div class="col-md-4">
-			  </div>
+			  <div class="col-md-4"></div>
+
 			  <div class="col-md-4" id ="nickWrap">
 				 <h4>Login</h4>
 				 <p id ="nickError"></p>
 				 <form id="setNick" class="form-group">
-					<input size = "35" id ="nickName"></input>
+					<input size = "35" id ="nickName" placeholder="Enter Username"></input>
 				 </form>
 			  </div>
 		   </div>
+		
 		   <div class="row">
 			  <div id ="contentWrap">
 				 <div class="col-md-2" id ="users"></div>
 				 <div class="col-md-5"  id = "chatWrap">
 					<div id = "chat"></div>
 					<form id ="send-message">
-					   <input size="35" id = "message"></input>
-					   <input class = "btn btn-warning" type = "submit"></input>
+					   <input size="35" id = "message" style= "width:100%"></input>
+					   <input class="btn btn-warning" type = "submit" style= "width:100%"></input>
 					</form>
 				 </div>
 				 <div class="col-md-5">
 					<div id="map"></div>
+		</div>
 					<script>
 					   // Note: This example requires that you consent to location sharing when
 					   // prompted by your browser. If you see the error "The Geolocation service
@@ -181,17 +187,21 @@
 			  
 				  //Version 4 we're displaying the same chat information multiple times so here we'll create a displayMsg function
 				  function displayMsg(data){
-					  $chat.append('<span class = "msg badge badge-secondary"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
+					  $chat.append('<span class = "msg badge badge-pill badge-secondary"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
 				  };
 			  
 				  //lets get the whisper function from the backend, and display it here on the client side.
 				  socket.on('whisper', function(data){
-					  $chat.append('<span class = "whisper badge badge-warning"><b>' + data.nick + '</b>' + ': ' + data.msg + '<span><br />');
+					  $chat.append('<span class = "whisper badge badge-pill badge-warning"><b>' + data.nick + '</b>' + ': ' + data.msg + '<span><br />');
 				  });
-				  
-			  
+				 
+				  //Auto Scroll Down		  
+				  window.setInterval(function() {
+					var elem = document.getElementById('chat');
+					elem.scrollTop = elem.scrollHeight;
+					}, 50);
+
 			  });
-			  
 		   </script>
 		</body>
 	 </html>
