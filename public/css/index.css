@@ -1,8 +1,11 @@
 body{
 	background-color: darkgrey;
+
 }
 
-
+h4 {
+	font-family: 'Luckiest Guy', cursive;	
+}
 
 #top-bar{
 	background-color: #50394c; 
@@ -12,6 +15,10 @@ body{
 #nickWrap{
 	color: #ffcc5c;
 	text-align: center;
+}
+
+#setNick{
+	color:black;
 }
 
 #chatwrap{
@@ -34,8 +41,8 @@ body{
 .msg {
 	font-size: 15px;
 	font-weight: bold;
-	color: #ffcc5c;
-	background-color: #50394c;
+	/* color: #ffcc5c; */
+	/* background-color: #50394c; */
 	padding: 4px;
 	margin: 3px;
 	border-radius: 5%;
@@ -45,3 +52,4 @@ body{
 	height: 100%;
 	width: 100%
 }
+
