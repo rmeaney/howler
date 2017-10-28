@@ -1,15 +1,19 @@
 body{
 	background-color: darkgrey;
-
 }
 
 h4 {
 	font-family: 'Luckiest Guy', cursive;	
 }
 
+.btn{
+	font-family: 'Luckiest Guy', cursive;
+}
+
 #top-bar{
 	background-color: #50394c; 
-	border-bottom: solid 5px white;
+	/* border-bottom: solid 5px white; */
+	margin-bottom: 20px;
 }
 
 #nickWrap{
@@ -30,8 +34,9 @@ h4 {
 }
 
 #users{
-	font-size: 30px;
+	font-size: 20px;
 	border: solid 3px #50394c;
+	font-family: 'Luckiest Guy', cursive;	
 }
 
 #message{
