@@ -40,3 +40,8 @@ body{
 	margin: 3px;
 	border-radius: 5%;
 }
+
+#map {
+	height: 100%;
+	width: 100%
+}
