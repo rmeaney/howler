@@ -1,3 +1,42 @@
-html{
-	background-color:green;
+body{
+	background-color: darkgrey;
+}
+
+
+
+#top-bar{
+	background-color: #50394c; 
+	border-bottom: solid 5px white;
+}
+
+#nickWrap{
+	color: #ffcc5c;
+	text-align: center;
+}
+
+#chatwrap{
+	background-color: white;
+}
+
+#chat{
+	background-color: white;
+}
+
+#users{
+	font-size: 30px;
+	border: solid 3px #50394c;
+}
+
+#message{
+	color: black;
+}
+
+.msg {
+	font-size: 15px;
+	font-weight: bold;
+	color: #ffcc5c;
+	background-color: #50394c;
+	padding: 4px;
+	margin: 3px;
+	border-radius: 5%;
 }
