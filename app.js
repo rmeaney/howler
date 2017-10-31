@@ -1,14 +1,15 @@
-var express =require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+var express =require('express'),
+	 app = express(),
+	 server = require('http').createServer(app),
+	 io = require('socket.io').listen(server);
+	 server.listen(process.env.PORT || 3000);
 	//we will use this nicknames array to store the all of the user names logged in.
 	//nicknames = [];
 	//Version 4 lets grab mongoose
 var mongoose = require('mongoose');
 	mongoose.Promise;
 
-	server.listen(process.env.PORT || 3000);
+	
 	app.use(express.static('public'));
 	
 	mongoose.connect('mongodb://heroku_2v9p06pm:hf0d2icmbp7avl2chfu8vo0fjl@ds241895.mlab.com:41895/heroku_2v9p06pm');
@@ -52,7 +53,7 @@ app.get('/', function(req, res){
 //we're going to recieve the message from the $messageBox we sent from the index.html
 	//we're creating a connection event (when a client first connects to a socketio app)
 		//the function takes the socket that the user is using. So when the user enters the app, its socket info is passed into this function to establish a connection. Kinda like a document ready function.
-io.sockets.on('connection', function(socket){
+	io.sockets.on('connection', function(socket){
 	//so on the front end we emitted a data from the messagebox to the server and we gave it the name 'send message'. we're going to use the same name to receive it server side.
 		//socket.on will receive messages from the front end.
 			//this first piece will send the nickname from the nickname text box in the frontend to the back end.
