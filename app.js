@@ -2,7 +2,7 @@ var express =require('express'),
 	 app = express(),
 	 server = require('http').createServer(app),
 	 io = require('socket.io').listen(server);
-	 server.listen(process.env.PORT || 3000);
+	//  server.listen(process.env.PORT || 3000);
 	//we will use this nicknames array to store the all of the user names logged in.
 	//nicknames = [];
 	//Version 4 lets grab mongoose
