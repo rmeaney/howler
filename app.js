@@ -8,7 +8,7 @@ var io = require('socket.io').listen(server);
 var mongoose = require('mongoose');
 	mongoose.Promise;
 
-	server.listen(3000);
+	server.listen(process.env.PORT || 3000);
 	app.use(express.static('public'));
 	
 	mongoose.connect('mongodb://heroku_2v9p06pm:hf0d2icmbp7avl2chfu8vo0fjl@ds241895.mlab.com:41895/heroku_2v9p06pm');
