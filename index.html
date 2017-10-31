@@ -42,7 +42,8 @@
 			  <div class="col-md-4"></div>
 
 			  <div class="col-md-4" id ="nickWrap">
-				 <h4>Login</h4>
+				 <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</h4>
+				 				 
 				 <p id ="nickError"></p>
 				 <form id="setNick" class="form-group">
 					<input size = "35" id ="nickName" placeholder="Enter Username"></input>
@@ -56,12 +57,14 @@
 					 <h4>Users</h4>
 					 <hr></hr>
 					 <div id ="users"></div>
+					 <hr></hr>
+					 <h5>Private Whisper: /w username message here</h5>
 				</div>
-				 <div class="col-md-5"  id = "chatWrap">
+				 <div class="col-md-5 col-sm-12"  id = "chatWrap">
 					<div id = "chat"></div>
 					<form id ="send-message">
-					   <input type="text" size="35" id = "message" style= "width:100%" placeholder="Enter message here."></input>
-					   <button class="btn btn-warning" type = "submit" style= "width:100%">Submit</button>
+					   <input type="text" size="35" id = "message" style="width:100%" placeholder="Enter message here."></input>
+					   <button class="btn btn-warning" type = "submit" style= "width:100%"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>Submit</button>
 					</form>
 				 </div>
 				 <div class="col-md-5">
