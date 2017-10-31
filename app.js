@@ -1,14 +1,14 @@
 var express =require('express');
-	app = express();
-	server = require('http').createServer(app);
-	io = require('socket.io').listen(server);
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 	//we will use this nicknames array to store the all of the user names logged in.
 	//nicknames = [];
 	//Version 4 lets grab mongoose
-	mongoose = require('mongoose');
+var mongoose = require('mongoose');
 	mongoose.Promise;
 
-	server.listen(PORT);
+	// server.listen(3000);
 	app.use(express.static('public'));
 	
 	mongoose.connect('mongodb://heroku_2v9p06pm:hf0d2icmbp7avl2chfu8vo0fjl@ds241895.mlab.com:41895/heroku_2v9p06pm');
@@ -139,7 +139,6 @@ io.sockets.on('connection', function(socket){
 				});
 });
 
-var port = process.env.PORT || 3000;
-app.listen(port, function(){
-  console.log('Running on port: ' + port);
-});
+app.listen(process.env.PORT || 3000, function(){
+	console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
