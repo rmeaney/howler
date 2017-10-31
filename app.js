@@ -1,30 +1,37 @@
-var express =require('express'),
+var express =require('express');
 	app = express();
-	server = require('http').createServer(app),
-	io = require('socket.io').listen(server),
-	
-
+	server = require('http').createServer(app);
+	io = require('socket.io').listen(server);
 	//we will use this nicknames array to store the all of the user names logged in.
 	//nicknames = [];
 	//Version 4 lets grab mongoose
-	mongoose = require('mongoose'),
+	mongoose = require('mongoose');
+	mongoose.Promise;
+
+	server.listen(PORT);
+	app.use(express.static('public'));
+	
+	mongoose.connect('mongodb://heroku_2v9p06pm:hf0d2icmbp7avl2chfu8vo0fjl@ds241895.mlab.com:41895/heroku_2v9p06pm');
+	var db = mongoose.connection;
 	//For version 3 we will be adding Private Chat functionality, so nicknames will be replaced with users.
 	users ={};
 
+	db.on('error', function(err) {
+		console.log('Mongoose Error: ', err);
+	  });
+	  
+	  db.once('open', function() {
+		console.log('Mongoose connection successful.');
+	  });
 
-
-server.listen(3000);
-
-app.use(express.static('public'));
-
-//Version 4 lets connect to / and or / create our mongo db Database
-mongoose.connect('mongodb://localhost/chatmongoose', function(err){
-	if(err){
-		console.log(err);
-	}else{
-		console.log('connected to MongoDb')
-	}
-});
+// //Version 4 lets connect to / and or / create our mongo db Database
+// mongoose.connect('mongodb://localhost/chatmongoose', function(err){
+// 	if(err){
+// 		console.log(err);
+// 	}else{
+// 		console.log('connected to MongoDb')
+// 	}
+// });
 //Version 4 lets create our schema
 	var chatSchema = mongoose.Schema({
 		nick: String,
@@ -130,4 +137,9 @@ io.sockets.on('connection', function(socket){
 					//then we will reupdate the user list displayed in the users div. Above you'll find a function we create called UpdateNicknames, and then well execute it in the new user function above.
 					updateNickNames();
 				});
+});
+
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
+  console.log('Running on port: ' + port);
 });
