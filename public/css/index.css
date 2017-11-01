@@ -8,12 +8,13 @@ h4 {
 }
 
 .submitbtn {
-	    text-shadow:
+	text-shadow:
     -1px -1px 0 #50394c,
     1px -1px 0 #50394c,
     -1px 1px 0 #50394c,
     1px 1px 0 #50394c;
 }
+
 .btn{
 	font-family: 'Luckiest Guy', cursive;
 }
