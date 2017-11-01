@@ -3,7 +3,12 @@ body{
 }
 
 h4 {
-	font-family: 'Luckiest Guy', cursive;	
+	font-family: 'Luckiest Guy', cursive;
+    text-shadow:
+    -1px -1px 0 #50394c,
+    1px -1px 0 #50394c,
+    -1px 1px 0 #50394c,
+    1px 1px 0 #50394c;
 }
 
 .btn{
