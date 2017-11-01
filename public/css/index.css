@@ -66,3 +66,20 @@ h4 {
 	width: 100%
 }
 
+#descriptorwrap {
+	margin-top: 30px;
+	text-align:center;
+}
+
+#descriptorwrap .glyphicon {
+	font-size:80px;
+}
+
+.footer {
+	background:#50394c;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 40px;
+}
