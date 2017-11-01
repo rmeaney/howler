@@ -73,6 +73,12 @@ h4 {
 
 #descriptorwrap .glyphicon {
 	font-size:80px;
+	color: #ffcc5c;
+	
+}
+
+#descriptorwrap h4 {
+	color: #50394c;
 }
 
 .footer {
