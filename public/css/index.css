@@ -21,8 +21,13 @@ h4 {
 
 #top-bar{
 	background-color: #50394c; 
-	/* border-bottom: solid 5px white; */
+	 border-bottom: solid 5px #dadada; 
 	margin-bottom: 20px;
+
+}
+
+#nickName{
+	border: solid 5px #dadada;
 }
 
 #nickWrap{
@@ -68,6 +73,7 @@ h4 {
 
 #descriptorwrap {
 	margin-top: 30px;
+	padding-top: 30px;
 	text-align:center;
 }
 
@@ -79,13 +85,40 @@ h4 {
 
 #descriptorwrap h4 {
 	color: #50394c;
+
 }
 
 .footer {
 	background:#50394c;
+	color: #dadada;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	border-top: solid 5px #dadada;
 	/* Set the fixed height of the footer here */
 	height: 40px;
+}
+
+
+#logo {
+	padding-top: 7px;
+	padding-left: 5px;
+}
+
+/*Icons*/
+.glyphicon.glyphicon-phone {
+	-webkit-animation-duration: 2s;
+}
+
+.glyphicon.glyphicon-globe {
+	-webkit-animation-duration: 4s;
+}
+
+.glyphicon.glyphicon-folder-open {
+	-webkit-animation-duration: 5s;
+}
+
+.glyphicon.glyphicon-cog {
+	-webkit-animation-duration: 6s;
+
 }
