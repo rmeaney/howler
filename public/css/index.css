@@ -5,6 +5,9 @@ body{
 h4 {
 	font-family: 'Luckiest Guy', cursive;
 }
+h5 {
+	font-family: 'Luckiest Guy', cursive;
+}
 
 .submitbtn {
 	text-shadow:
@@ -89,6 +92,7 @@ h4 {
 	border-radius: 5%;
 }
 
+
 #descriptorwrap {
 	margin-top: 30px;
 	padding-top: 30px;
@@ -151,21 +155,22 @@ h4 {
 
 @media only screen and (max-width: 480px) {
     body {
-        background-color: lightblue;
+        /*background-color: lightblue;*/
     }
 	#logo{
 		margin-left: 85px;
 	}
 	.icons{
 		margin-bottom: 10px;
+		font-size: 15px;
 	}
 	#privacy-col{
 		margin-top: 5px;
 	}
-
-	#map{
-		width: 400px;
-		
+	iframe{
+		width: 100%;
+		height: 200px;
 	}
+	#
 }
 
