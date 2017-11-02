@@ -39,7 +39,7 @@
 		   
 			<div class="row animated bounceInDown" id="top-bar">
 			  <div class="col-md-4">
-				 <img src="/images/howlerWiWolf.png" height="65" width="200" id="logo">
+				 <img src="/images/howlerWiWolf.png" height="75" width="225" id="logo">
 			  </div>
 			  <div class="col-md-4"></div>
 
@@ -54,7 +54,7 @@
 		   </div>
 		
 		   <div class="row animated bounceInLeft" id="descriptorwrap">
-			   <div class="col-md-3">
+			   <div class="col-md-3 icons">
 					
 					<span class="glyphicon glyphicon-folder-open animated infinite flipOutX" aria-hidden="true"></span>
 					<h4>Privacy</h4>
@@ -62,21 +62,21 @@
 					<p>We don't care!</p>
 			   </div>
 
-			   <div class="col-md-3">
+			   <div class="col-md-3 icons">
 					
 					<span class="glyphicon glyphicon-globe animated infinite bounce" aria-hidden="true"></span>
 					<h4>Local Connections</h4>
 					<p>View local venues like bars, concert halls, and arenas. Plan the next stop on your trip and talk to other locals.</p>
 				   </div>
 				
-				<div class="col-md-3">
+				<div class="col-md-3 icons">
 					<span class="glyphicon glyphicon-phone animated infinite tada" aria-hidden="true"></span>
 					<h4>Mobile.</h4>
 					<p>This website can be used from your smartphone browser with ease.</p>
 					<p><img src="/images/app-store.jpg" width="30%"></p>
 			   </div>
 
-			   <div class="col-md-3">
+			   <div class="col-md-3 icons">
 					
 					<span class="glyphicon glyphicon-cog animated infinite rotateIn" aria-hidden="true"></span>
 					<h4>How it works.</h4>
@@ -87,24 +87,24 @@
 
 		   <div class="row">
 			  <div id ="contentWrap">
-				 <div class="col-md-2 userwrap">
+				 <div class="col-md-2 userwrap animated rotateInUpLeft">
 					 <h4>Users</h4>
 					 <hr></hr>
 					 <div id ="users"></div>
 					 <hr></hr>
 					 <h5>Private Whisper: /w username message here</h5>
 				</div>
-				 <div class="col-md-5 col-sm-12"  id = "chatWrap">
+				 <div class="col-md-5 col-sm-12 animated slideInUp"  id = "chatWrap">
 					<div id = "chat"></div>
 					<form id ="send-message" class="form-group">
 					   <input type="text" size="35" id= "message" style="width:100%" placeholder="Enter message here."></input>
 					   <button class="btn btn-warning submitbtn" type = "submit" style= "width:100%"><span class=" glyphicon glyphicon-transfer" aria-hidden="true"></span>Submit</button>
 					</form>
 				 </div>
-				 <div class="col-md-5">
+				 <div class="col-md-5 animated slideInRight">
 					<div id="map">
 
-						<iframe width="600" height="450" frameborder="0" style="border:0"
+						<iframe width="575" height="460" frameborder="0" style="border: solid 5px #50394c"
 						src="https://www.google.com/maps/embed/v1/search?q=bars&key=AIzaSyB_CyQ01NWYj3DfwdEbAYMq4a7pS8FYU8E" allowfullscreen></iframe>
 
 					</div>
@@ -192,7 +192,7 @@
 							  $('#contentWrap').show();
 							  //but if we send false back (the chosen nickname is already in the array)
 						  }else{
-							  $nickError.html('That username is already taken! Try again.');
+							  $nickError.html('That username is already taken! Try again.').addClass("animated wobble");
 						  }
 			  
 					  });
@@ -246,12 +246,12 @@
 			  
 				  //Version 4 we're displaying the same chat information multiple times so here we'll create a displayMsg function
 				  function displayMsg(data){
-					  $chat.append('<span class = "msg badge badge-pill badge-secondary"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
+					  $chat.append('<span class = "msg badge badge-pill badge-secondary animated rotateInUpLeft"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
 				  };
 			  
 				  //lets get the whisper function from the backend, and display it here on the client side.
 				  socket.on('whisper', function(data){
-					  $chat.append('<span class = "whisper badge badge-pill badge-warning"><b>' + data.nick + '</b>' + ': ' + data.msg + '<span><br />');
+					  $chat.append('<span class = "whisper badge badge-pill badge-warning animated flash"><b>' + data.nick + '</b>' + ': ' + data.msg + '<span><br />');
 				  });
 				 
 				  //Auto Scroll Down		  
