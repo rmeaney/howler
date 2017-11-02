@@ -10,7 +10,9 @@ var mongoose = require('mongoose');
 	
 	app.use(express.static('public'));
 	
-	mongoose.connect('mongodb://heroku_2v9p06pm:hf0d2icmbp7avl2chfu8vo0fjl@ds241895.mlab.com:41895/heroku_2v9p06pm');
+
+	//mongoose.connect('mongodb://heroku_2v9p06pm:hf0d2icmbp7avl2chfu8vo0fjl@ds241895.mlab.com:41895/heroku_2v9p06pm');
+    mongoose.connect('mongodb://localhost/chatmongoose');
 	var db = mongoose.connection;
 	//For version 3 we will be adding Private Chat functionality, so nicknames will be replaced with users.
 	users ={};
