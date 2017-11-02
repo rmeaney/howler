@@ -3,13 +3,10 @@ var express =require('express'),
 	 app = express(),
 	 server = http.createServer(app),
 	 io = require('socket.io').listen(server);
-	//  server.listen(process.env.PORT || 3000);
-	//we will use this nicknames array to store the all of the user names logged in.
-	//nicknames = [];
+
 	//Version 4 lets grab mongoose
 var mongoose = require('mongoose');
 	mongoose.Promise;
-
 	
 	app.use(express.static('public'));
 	
@@ -26,14 +23,6 @@ var mongoose = require('mongoose');
 		console.log('Mongoose connection successful.');
 	  });
 
-// //Version 4 lets connect to / and or / create our mongo db Database
-// mongoose.connect('mongodb://localhost/chatmongoose', function(err){
-// 	if(err){
-// 		console.log(err);
-// 	}else{
-// 		console.log('connected to MongoDb')
-// 	}
-// });
 //Version 4 lets create our schema
 	var chatSchema = mongoose.Schema({
 		nick: String,
@@ -71,7 +60,6 @@ app.get('/', function(req, res){
 					//so if its not -1 then it means its already in the array, so we spit back false in the callback
 			//Version 3 change We will no longer be checking for nicknames in nicknames[]. We will be looking in an object called users using nickname as the key.
 			if(data in users){
-			//if(nicknames.indexOf(data) !== -1){
 				callback(false);
 			} else {
 				callback(true);
@@ -83,7 +71,6 @@ app.get('/', function(req, res){
 				//originally we had 'io.sockets.emit('usernames', nicknames);' here, 
 				//however, since we need to constantly update the users list, we will tell the new user function to execute the updateNickNames Function, to keep the list up to date.
 				updateNickNames();
-
 			}
 		});
 	//here we create the function that will be used to update the username array, and later use it to update the users div in the front end.
@@ -129,7 +116,6 @@ app.get('/', function(req, res){
 	});
 
 	//Which works great however now we need to create a disconnect feature
-
 				socket.on('disconnect', function(data){
 					//check if nick name is set, if they dont we'll just return
 					if(!socket.nickname) return;

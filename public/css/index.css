@@ -4,7 +4,6 @@ body{
 
 h4 {
 	font-family: 'Luckiest Guy', cursive;
-
 }
 
 .submitbtn {
@@ -22,12 +21,32 @@ h4 {
 #top-bar{
 	background-color: #50394c; 
 	 border-bottom: solid 5px #dadada; 
+
 	margin-bottom: 20px;
 
 }
 
 #nickName{
 	border: solid 5px #dadada;
+}
+
+#contentWrap{
+	display:none;
+}
+
+.error{
+	color:red;
+}
+
+.whisper{
+	color:gray;
+	font-style:italic;
+}
+
+#chat{
+	height:450px;
+	overflow-y: scroll;
+	background-color: white;
 }
 
 #nickWrap{
@@ -39,18 +58,22 @@ h4 {
 	color:black;
 }
 
-#chatwrap{
+#chatWrap{
 	background-color: white;
-}
+	border:3px #50394c solid;
 
-#chat{
-	background-color: white;
 }
 
 #users{
 	font-size: 15px;
 	border: solid 3px #50394c;
 }
+
+.userwrap{
+	text-align: center;
+	background-color: #50394c;
+	color:white;
+  }
 
 #message{
 	color: black;
@@ -59,16 +82,9 @@ h4 {
 .msg {
 	font-size: 15px;
 	font-weight: bold;
-	/* color: #ffcc5c; */
-	/* background-color: #50394c; */
 	padding: 4px;
 	margin: 3px;
 	border-radius: 5%;
-}
-
-#map {
-	height: 100%;
-	width: 100%
 }
 
 #descriptorwrap {
@@ -96,6 +112,7 @@ h4 {
 	width: 100%;
 	border-top: solid 5px #dadada;
 	/* Set the fixed height of the footer here */
+
 	height: 40px;
 }
 
