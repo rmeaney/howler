@@ -1,264 +1,182 @@
-<html>
-		<head>
-			<link rel="howler" type="image" href="/images/HowlerWolfOnly.png" />
-		   <title>Howler</title>
-		   <style>
-			  #chat{
-			  height:500px;
-			  width:100%;
-			  overflow-y: scroll;
-			  }
-			  #contentWrap{
-			  display:none;
-			  }
-			  #chatWrap{
-			  float:left;
-			  border:1px #000 solid;
-			  }
-			  .userwrap{
-				text-align: center;
-				background-color: #50394c;
-				color:white;
-			  }
-			  .error{
-			  color:red;
-			  }
-			  .whisper{
-			  color:gray;
-			  font-style:italic;
-			  }
-		   </style>
-		   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-		   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-		   <link rel="stylesheet" href="/css/index.css">
-		</head>
-		<body>
-		<div class="container-fluid"></div>	
-		   
-			<div class="row" id="top-bar">
-			  <div class="col-md-4">
-				 <img src="/images/howlerWiWolf.png" height="65" width="200">
-			  </div>
-			  <div class="col-md-4"></div>
-
-			  <div class="col-md-4" id ="nickWrap">
-				 <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</h4>
-				 				 
-				 <p id ="nickError"></p>
-				 <form id="setNick" class="form-group">
-					<input size = "35" id ="nickName" placeholder="Enter Username"></input>
-				 </form>
-			  </div>
-		   </div>
-		
-		   <div class="row" id="descriptorwrap">
-			   <div class="col-md-3">
-					
-					<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-					<h4>Privacy</h4>
-					<p>The only chat app that's not secretly storing you're private information, and selling it to advertisers.</p>
-					<p>We don't care!</p>
-			   </div>
-
-			   <div class="col-md-3">
-					
-					<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-					<h4>Local Connections</h4>
-					<p>View local venues like bars, concert halls, and arenas. Plan the next stop on your trip and talk to other locals.</p>
-				   </div>
-				
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-					<h4>Mobile.</h4>
-					<p>This website can be used from your smartphone browser with ease.</p>
-					<p><img src="/images/app-store.jpg" width="30%"></p>
-			   </div>
-
-			   <div class="col-md-3">
-					
-					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-					<h4>How it works.</h4>
-					<p>Join with a username anonymously or using your real name.</p>
-					<p>Message users publicly or privately in your location and chat freely.</p>
-		   		</div>
-		   </div>
-
-		   <div class="row">
-			  <div id ="contentWrap">
-				 <div class="col-md-2 userwrap">
-					 <h4>Users</h4>
-					 <hr></hr>
-					 <div id ="users"></div>
-					 <hr></hr>
-					 <h5>Private Whisper: /w username message here</h5>
-				</div>
-				 <div class="col-md-5 col-sm-12"  id = "chatWrap">
-					<div id = "chat"></div>
-					<form id ="send-message" class="form-group">
-					   <input type="text" size="35" id= "message" style="width:100%" placeholder="Enter message here."></input>
-					   <button class="btn btn-warning submitbtn" type = "submit" style= "width:100%"><span class=" glyphicon glyphicon-transfer" aria-hidden="true"></span>Submit</button>
-					</form>
-				 </div>
-				 <div class="col-md-5">
-					<div id="map">
-
-						<iframe width="600" height="450" frameborder="0" style="border:0"
-						src="https://www.google.com/maps/embed/v1/search?q=bars&key=AIzaSyB_CyQ01NWYj3DfwdEbAYMq4a7pS8FYU8E" allowfullscreen></iframe>
-
-					</div>
-		</div>
-					<!-- <script>
-					   // Note: This example requires that you consent to location sharing when
-					   // prompted by your browser. If you see the error "The Geolocation service
-					   // failed.", it means you probably did not give permission for the browser to
-					   // locate you.
-					   var map, infoWindow;
-					   function initMap() {
-						 map = new google.maps.Map(document.getElementById('map'), {
-						   center: {lat: 35.8999086, lng: -79.0125173},
-						   zoom: 10
-						 });
-						 infoWindow = new google.maps.InfoWindow;
-					   
-						 // Try HTML5 geolocation.
-						 if (navigator.geolocation) {
-						   navigator.geolocation.getCurrentPosition(function(position) {
-							 var pos = {
-							   lat: position.coords.latitude,
-							   lng: position.coords.longitude
-							 };
-					   
-							 infoWindow.setPosition(pos);
-							 infoWindow.setContent('Location found.');
-							 infoWindow.open(map);
-							 map.setCenter(pos);
-						   }, function() {
-							 handleLocationError(true, infoWindow, map.getCenter());
-						   });
-						 } else {
-						   // Browser doesn't support Geolocation
-						   handleLocationError(false, infoWindow, map.getCenter());
-						 }
-					   }
-					   
-					   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-						 infoWindow.setPosition(pos);
-						 infoWindow.setContent(browserHasGeolocation ?
-											   'Error: The Geolocation service failed.' :
-											   'Error: Your browser doesn\'t support geolocation.');
-						 infoWindow.open(map);
-					   }
-					</script> -->
-					<script async defer
-					   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQstbbJZ-6cVV_9C6ccs86TGmHCq1tWhk&callback=initMap"></script>
-				 </div>
-			  </div>
-		   </div>
-
-		   <footer class="footer">
-				<div class="container">
-				  <p class="text-muted">2017 © Future enDEVors</p>
-				</div>
-			  </footer>
-
-		   <script src = "https://code.jquery.com/jquery-latest.min.js"></script>
-		   <!--This is generated by the socke.io package -->
-		   <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-		   <script>
-			  //weird alternate document ready
-			  $(document).ready(function($) {
-				  // we're getting io.connect from the socket.io.js file we linked. It is also connected to port 3000 as we specified in the app.js
-				  var socket = io.connect();
-				  //we're going to chache all our variables
-					  //adding username variables
-				  var $nickForm = $('#setNick');
-				  var $nickError = $('#nickError');
-				  var $nickBox = $('#nickName');
-				  var $users = $('#users');
-				  var $messageForm = $('#send-message');
-				  var $messageBox = $('#message');
-				  var $chat = $('#chat');
-			  
-				  //lets attach an event handler to the nickname form, whenever a user sumbits it.
-				  $nickForm.submit(function(e){
-					  e.preventDefault();
-					  socket.emit('new user', $nickBox.val(), function(data){
-						  //so if the date is true, hide the nickname form and show the content wrap
-						  if(data){
-							  $('#nickWrap').hide();
-							  $('#descriptorwrap').hide();
-							  $('#contentWrap').show();
-							  //but if we send false back (the chosen nickname is already in the array)
-						  }else{
-							  $nickError.html('That username is already taken! Try again.');
-						  }
-			  
-					  });
-					  $nickBox.val('');
-				  });
-				  //display users logged in
-				  socket.on('usernames', function(data){
-					  //so were going to first blank out the html in the users div
-					  var html= '';
-					  // then we are going to cycle through the data and add each entry into the users div
-					  for(i = 0; i < data.length; i++){
-						  html += data[i] + '<br/>';
-					  }
-					  $users.html(html);
-				  })
-				  //Bind an event handler to the messageForm.
-				  //Every time its submitted we want to send the message to the server
-				  $messageForm.submit(function(e){
-					  //prevent the page from refreshing, just send to the server.
-					  e.preventDefault();
-					  //emit will send the message over it takes 2 parameters
-					  //the first parameter can be named anything. it is naming the event we will send to the server.
-					  //the second is the data we will be sending to the server. We are sending whatever the user types into the message box.
-					  socket.emit('send message', $messageBox.val(), function(data){
-						  $chat.append('<span class = "error">' + data + "</span><br/>");
-					  });
-					  //then we will clear the message box.
-					  $messageBox.val('');
-					  // from here we have sent our message to the server, but our server has to respond
-				  });
-			  
-				  //Version 4: We have to recieve the 'load old messages' function here from the backend.
-			  
-				  socket.on('load old msgs', function(docs){
-					  //Version 4: After limiting and sorting, we want it to display the most recent on the bottom, like a regular chat. So, well grab a have to redo this for loop so that it grabs the max and decreases instead.
-					  //for(var i = 0; i < docs.length; i++){
-					  for(var i = docs.length - 1; i >= 0; i--){
-						  displayMsg(docs[i]);
-					  }
-				  });
-			  
-				  //next we have to recieve the message on the client side / front end. so we're going to create an event that reads socket.on('new message',) that got emitted in the send message function on the backend's ('send message').
-			  
-				  //here we're creating a function that will update the nicknames list
-			  
-				  socket.on('new message', function(data){
-					  //Version 4 change we're displaying this info again in the load old messages function, so we'll get rid of it and place it in a function and just call the function
-					  //$chat.append('<span class = "msg"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
-					  displayMsg(data);
-				  });
-			  
-				  //Version 4 we're displaying the same chat information multiple times so here we'll create a displayMsg function
-				  function displayMsg(data){
-					  $chat.append('<span class = "msg badge badge-pill badge-secondary"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
-				  };
-			  
-				  //lets get the whisper function from the backend, and display it here on the client side.
-				  socket.on('whisper', function(data){
-					  $chat.append('<span class = "whisper badge badge-pill badge-warning"><b>' + data.nick + '</b>' + ': ' + data.msg + '<span><br />');
-				  });
-				 
-				  //Auto Scroll Down		  
-				  window.setInterval(function() {
-					var elem = document.getElementById('chat');
-					elem.scrollTop = elem.scrollHeight;
-					}, 50);
-
-			  });
-		   </script>
-		</body>
-	 </html>
+<!DOCTYPE html>
+<html lang="en-us">
+   <head>
+      <link rel="howler" type="image" href="/images/HowlerWolfOnly.png" />
+      <title>Howler</title>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+      <link rel="stylesheet" href="/css/index.css">
+   </head>
+   <body>
+      <div class="container-fluid"></div>
+      <div class="row" id="top-bar">
+         <div class="col-md-4">
+            <img src="/images/howlerWiWolf.png" height="65" width="200">
+         </div>
+         <div class="col-md-4"></div>
+         <div class="col-md-4" id ="nickWrap">
+            <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</h4>
+            <p id ="nickError"></p>
+            <form id="setNick" class="form-group">
+               <input size = "35" id ="nickName" placeholder="Enter Username"></input>
+            </form>
+         </div>
+      </div>
+      <div class="row" id="descriptorwrap">
+         <div class="col-md-3">
+            <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+            <h4>Privacy</h4>
+            <p>The only chat app that's not secretly storing you're private information, and selling it to advertisers.</p>
+            <p>We don't care!</p>
+         </div>
+         <div class="col-md-3">
+            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            <h4>Local Connections</h4>
+            <p>View local venues like bars, concert halls, and arenas. Plan the next stop on your trip and talk to other locals.</p>
+         </div>
+         <div class="col-md-3">
+            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+            <h4>Mobile</h4>
+            <p>This website can be used from your smartphone browser with ease.</p>
+            <p><img src="/images/app-store.jpg" width="30%"></p>
+         </div>
+         <div class="col-md-3">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            <h4>How it works</h4>
+            <p>Join with a username anonymously or using your real name.</p>
+            <p>Message users publicly or privately in your location and chat freely.</p>
+         </div>
+      </div>
+      <div class="row">
+         <div id ="contentWrap">
+            <div class="col-md-2 userwrap">
+               <h4>Users</h4>
+               <hr>
+               </hr>
+               <div id ="users"></div>
+               <hr>
+               </hr>
+               <h5>Private Whisper: /w username message here</h5>
+            </div>
+            <div class="col-md-5 col-sm-12"  id = "chatWrap">
+               <div id = "chat"></div>
+               <form id ="send-message" class="form-group">
+                  <input type="text" size="35" id= "message" style="width:100%" placeholder="Enter message here."></input>
+                  <button class="btn btn-warning submitbtn" type = "submit" style= "width:100%"><span class=" glyphicon glyphicon-transfer" aria-hidden="true"></span>Submit</button>
+               </form>
+            </div>
+            <div class="col-md-5 col-sm-12" id="map">
+               <iframe width="100%" height="450px" frameborder="0" style="border:0"
+                  src="https://www.google.com/maps/embed/v1/search?q=bars&key=AIzaSyB_CyQ01NWYj3DfwdEbAYMq4a7pS8FYU8E" allowfullscreen></iframe>
+            </div>
+         </div>
+      </div>
+      </div>
+      <footer class="footer">
+         <div class="container">
+         <p class="text-muted">
+            2017 © Future enDEVors		
+            <br><a href="https://github.com/rmeaney/howler" class="text-muted">GitHub Repo</a></br>
+         </p>
+      </footer>
+      <script src = "https://code.jquery.com/jquery-latest.min.js"></script>
+      <!--This is generated by the socke.io package -->
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+      <script>
+         //weird alternate document ready
+         $(document).ready(function($) {
+          // we're getting io.connect from the socket.io.js file we linked. It is also connected to port 3000 as we specified in the app.js
+          var socket = io.connect();
+          //we're going to chache all our variables
+           //adding username variables
+          var $nickForm = $('#setNick');
+          var $nickError = $('#nickError');
+          var $nickBox = $('#nickName');
+          var $users = $('#users');
+          var $messageForm = $('#send-message');
+          var $messageBox = $('#message');
+          var $chat = $('#chat');
+         
+          //lets attach an event handler to the nickname form, whenever a user sumbits it.
+          $nickForm.submit(function(e){
+           e.preventDefault();
+           socket.emit('new user', $nickBox.val(), function(data){
+         	  //so if the date is true, hide the nickname form and show the content wrap
+         	  if(data){
+         		  $('#nickWrap').hide();
+         		  $('#descriptorwrap').hide();
+         		  $('#contentWrap').show();
+         		  //but if we send false back (the chosen nickname is already in the array)
+         	  }else{
+         		  $nickError.html('That username is already taken! Try again.');
+         	  }
+         
+           });
+           $nickBox.val('');
+          });
+          //display users logged in
+          socket.on('usernames', function(data){
+           //so were going to first blank out the html in the users div
+           var html= '';
+           // then we are going to cycle through the data and add each entry into the users div
+           for(i = 0; i < data.length; i++){
+         	  html += data[i] + '<br/>';
+           }
+           $users.html(html);
+          })
+          //Bind an event handler to the messageForm.
+          //Every time its submitted we want to send the message to the server
+          $messageForm.submit(function(e){
+           //prevent the page from refreshing, just send to the server.
+           e.preventDefault();
+           //emit will send the message over it takes 2 parameters
+           //the first parameter can be named anything. it is naming the event we will send to the server.
+           //the second is the data we will be sending to the server. We are sending whatever the user types into the message box.
+           socket.emit('send message', $messageBox.val(), function(data){
+         	  $chat.append('<span class = "error">' + data + "</span><br/>");
+           });
+           //then we will clear the message box.
+           $messageBox.val('');
+           // from here we have sent our message to the server, but our server has to respond
+          });
+         
+          //Version 4: We have to recieve the 'load old messages' function here from the backend.
+         
+          socket.on('load old msgs', function(docs){
+           //Version 4: After limiting and sorting, we want it to display the most recent on the bottom, like a regular chat. So, well grab a have to redo this for loop so that it grabs the max and decreases instead.
+           //for(var i = 0; i < docs.length; i++){
+           for(var i = docs.length - 1; i >= 0; i--){
+         	  displayMsg(docs[i]);
+           }
+          });
+         
+          //next we have to recieve the message on the client side / front end. so we're going to create an event that reads socket.on('new message',) that got emitted in the send message function on the backend's ('send message').
+         
+          //here we're creating a function that will update the nicknames list
+         
+          socket.on('new message', function(data){
+           //Version 4 change we're displaying this info again in the load old messages function, so we'll get rid of it and place it in a function and just call the function
+           //$chat.append('<span class = "msg"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
+           displayMsg(data);
+          });
+         
+          //Version 4 we're displaying the same chat information multiple times so here we'll create a displayMsg function
+          function displayMsg(data){
+           $chat.append('<span class = "msg badge badge-pill badge-secondary"><b>' + data.nick + ': </b>' + data.msg + "</span><br/>");
+          };
+         
+          //lets get the whisper function from the backend, and display it here on the client side.
+          socket.on('whisper', function(data){
+           $chat.append('<span class = "whisper badge badge-pill badge-warning"><b>' + data.nick + '</b>' + ': ' + data.msg + '<span><br />');
+          });
+         
+          //Auto Scroll Down		  
+          window.setInterval(function() {
+         var elem = document.getElementById('chat');
+         elem.scrollTop = elem.scrollHeight;
+         }, 50);
+         
+         });
+      </script>
+   </body>
+</html>
